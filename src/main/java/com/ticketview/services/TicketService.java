@@ -20,12 +20,12 @@ import com.ticketview.model.TicketDetails;
 public class TicketService {
 	
 	
-	public ResponseWrapper<GetAllTicketResponse> getAllTickets(){
+	public ResponseWrapper<GetAllTicketResponse> getAllTickets(int page, int perPage){
 		
 		ResponseWrapper<GetAllTicketResponse> wrapper = new ResponseWrapper<>();
 	
 		TicketApi ticketApi = ZendeskAPIClient.createService(TicketApi.class);
-		Call<GetAllTicketResponse> callSync = ticketApi.getTickets(1, 25);
+		Call<GetAllTicketResponse> callSync = ticketApi.getTickets(page, perPage);
 		
 		try {
 			Response<GetAllTicketResponse> response = callSync.execute();

@@ -6,4 +6,5 @@ import java.util.*;
 @Data
 public class GetAllTicketResponse {
 	List<Ticket> tickets;
+	int count;
 }

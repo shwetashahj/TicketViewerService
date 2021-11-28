@@ -5,9 +5,11 @@ import java.util.*;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ticketview.model.GetAllTicketResponse;
@@ -18,15 +20,16 @@ import com.ticketview.response.ResponseWrapper;
 import com.ticketview.services.TicketService;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
 public class TicketsController {
 
 	@Autowired
 	private TicketService ticketService;
 	
 	@RequestMapping(value = "/getTickets", method = RequestMethod.GET)
-	public ResponseWrapper<GetAllTicketResponse> getAllTickets(HttpServletRequest request){
+	public ResponseWrapper<GetAllTicketResponse> getAllTickets(HttpServletRequest request,@RequestParam(name = "page") int page,@RequestParam(name = "per_page") int perPage){
 		
-		return ticketService.getAllTickets();
+		return ticketService.getAllTickets(page,perPage);
 		
 	}
 	
