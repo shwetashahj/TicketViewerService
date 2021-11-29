@@ -1,5 +1,4 @@
 package com.ticketview.model;
-
 import com.google.gson.annotations.SerializedName;
 import com.ticketview.model.enums.Priority;
 import com.ticketview.model.enums.Status;
@@ -18,7 +17,5 @@ public class Ticket {
 	
 	@SerializedName("created_at")
 	private String createdDate;
-	
-	
 }
 

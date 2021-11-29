@@ -1,7 +1,7 @@
 package com.ticketview.model;
-
-import java.util.ArrayList;
 import java.util.List;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.google.gson.annotations.SerializedName;
 import com.ticketview.model.enums.Priority;
@@ -19,6 +19,7 @@ public class TicketDetails {
 	private Status status;
 	
 	@SerializedName("created_at")
+	@DateTimeFormat(pattern="yyyy.MM.dd HH:mm")
 	private String createdDate;
 	
 	private String description;
